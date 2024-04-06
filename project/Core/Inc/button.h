@@ -18,31 +18,15 @@
 #include "stm32f1xx_hal.h"
 
 
-/* Private includes ----------------------------------------------------------*/
-
-
-/* Exported types ------------------------------------------------------------*/
-
-
-/* Exported constants --------------------------------------------------------*/
+/* Variables -----------------------------------------------------------------*/
 extern int NUM_BUTTONS;
+extern uint16_t buttonPins[NUM_BUTTONS];
 
 
-/* Exported macro ------------------------------------------------------------*/
+/* Function prototypes  ------------------------------------------------------*/
+int _write(int file, char *ptr, int len);
+void testDisplayNum(int num);
+bool buttonPressed();
 
-
-/* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
-/* USER CODE BEGIN EFP */
-
-/* USER CODE END EFP */
-
-
-/* Private defines -----------------------------------------------------------*/
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* __BUTTON_H */
