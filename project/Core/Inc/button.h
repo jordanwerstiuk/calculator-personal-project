@@ -16,17 +16,26 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include <stdio.h>
+
+
+/* Includes ------------------------------------------------------------------*/
+#define NUM_BUTTONS 2
+#define USART_RX_BUF_SIZE 64
 
 
 /* Variables -----------------------------------------------------------------*/
-extern int NUM_BUTTONS;
+extern UART_HandleTypeDef huart3;
+extern char UART3_rxBuffer[USART_RX_BUF_SIZE];
+
 extern uint16_t buttonPins[NUM_BUTTONS];
 
 
 /* Function prototypes  ------------------------------------------------------*/
 int _write(int file, char *ptr, int len);
-void testDisplayNum(int num);
-bool buttonPressed();
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void displayNumConsole(int num);
+int buttonPressed(GPIO_TypeDef *gpioPort, uint16_t pinNum);
 
 
 #endif /* __BUTTON_H */

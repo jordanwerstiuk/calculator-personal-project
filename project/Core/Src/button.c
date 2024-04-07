@@ -14,15 +14,21 @@
 
 
 /* Variables -----------------------------------------------------------------*/
-int NUM_BUTTONS = 2;
+UART_HandleTypeDef huart3;
+char UART3_rxBuffer[USART_RX_BUF_SIZE];
+
 uint16_t buttonPins[NUM_BUTTONS]= {GPIO_PIN_0, GPIO_PIN_1};
 
 
 /* Functions -----------------------------------------------------------------*/
-int _write(int file, char *ptr, int len)
-{
-	HAL_UART_Transmit_IT(&huart1, (uint8_t*)ptr, len);
+int _write(int file, char *ptr, int len) {
+	HAL_UART_Transmit_IT(&huart3, (uint8_t*)ptr, len);
 	return len;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	printf("%hu\r\n", *UART3_rxBuffer);
+    HAL_UART_Receive_IT(&huart3, UART3_rxBuffer, 1);
 }
 
 void displayNumConsole(int num) {

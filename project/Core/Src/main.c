@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "button.h"
+#include "display.h"
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,10 +42,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-I2C_HandleTypeDef hi2c1;
-
-UART_HandleTypeDef huart3;
-
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -98,21 +96,26 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-  	  for (int i = 0; i < NUM_BUTTONS; i++) {
-  		  if (i < 10) {
-  			  if (buttonPressed(GPIOA, buttonPins[i])) {
-  				  displayNumConsole(i);
-  			  }
-  		  } else {
-  			  if (buttonPressed(GPIOB, buttonPins[i - 10])) {
+	  printf("Hello world!\n");
+	  for (int i = 0; i < NUM_BUTTONS; i++) {
+	    		  if (i < 10) {
+	    			  if (buttonPressed(GPIOA, buttonPins[i])) {
+	    				  displayNumConsole(i);
+	    			  }
+	    		  } else {
+	    			  if (buttonPressed(GPIOB, buttonPins[i - 10])) {
 
-  			  }
-  		  }
-  	  }
-    }
+	    			  }
+	    		  }
+	   }
+    /* USER CODE END WHILE */
 
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
 }
 
 /**
