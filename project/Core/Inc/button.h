@@ -20,8 +20,8 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#define NUM_BUTTONS 2
-#define USART_RX_BUF_SIZE 64
+#define NUM_BUTTONS 19
+#define USART_RX_BUF_SIZE 8
 
 
 /* Variables -----------------------------------------------------------------*/
@@ -29,13 +29,14 @@ extern UART_HandleTypeDef huart3;
 extern char UART3_rxBuffer[USART_RX_BUF_SIZE];
 
 extern uint16_t buttonPins[NUM_BUTTONS];
-
+extern GPIO_TypeDef *LEDport;
+extern uint16_t LEDpin;
 
 /* Function prototypes  ------------------------------------------------------*/
 int _write(int file, char *ptr, int len);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-void displayNumConsole(int num);
 int buttonPressed(GPIO_TypeDef *gpioPort, uint16_t pinNum);
-
+void displayNumConsole(int num);
+void blinkLED(int duration);
 
 #endif /* __BUTTON_H */
