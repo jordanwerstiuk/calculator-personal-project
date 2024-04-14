@@ -15,8 +15,8 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx_hal.h"
 #include <stdio.h>
+#include "main.h"
 
 
 /* Includes ------------------------------------------------------------------*/
@@ -29,8 +29,7 @@ extern UART_HandleTypeDef huart3;
 extern char UART3_rxBuffer[USART_RX_BUF_SIZE];
 
 extern uint16_t buttonPins[NUM_BUTTONS];
-extern GPIO_TypeDef *LEDport;
-extern uint16_t LEDpin;
+
 
 /* Function prototypes  ------------------------------------------------------*/
 int _write(int file, char *ptr, int len);
