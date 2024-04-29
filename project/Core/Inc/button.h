@@ -35,7 +35,6 @@ extern uint16_t buttonPins[NUM_BUTTONS];
 int _write(int file, char *ptr, int len);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 int buttonPressed(GPIO_TypeDef *gpioPort, uint16_t pinNum);
-void displayNumConsole(int num);
 void blinkLED(int duration);
 
 #endif /* __BUTTON_H */

@@ -34,12 +34,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 
 int buttonPressed(GPIO_TypeDef *gpioPort, uint16_t pinNum) {
-	//Using built-in pull-up resistors, so pressed is logic level 0
+	//Using pull-up resistors, so pressed is logic level 0
 	return !HAL_GPIO_ReadPin(gpioPort, pinNum);
-}
-
-void displayNumConsole(int num) {
-
 }
 
 void blinkLED(int duration) {
