@@ -33,14 +33,18 @@
 #define CURSOR 0x02
 #define BLINK 0x01
 
-#define ENTRY_MODE_SET 0x06
+#define ENTRY_MODE_SET 0x04
 #define SHIFT 0x01
 #define NO_SHIFT 0x00
 #define INCREMENT_INDEX 0x02
 #define DECREMENT_INDEX 0x00
 
+#define DDRAM_ADDR_SET 0x80
+
 #define BACKLIGHT 0x08
-#define REGISTER_SELECT 0x01
+#define NO_BACKLIGHT 0x00
+#define DATA_REGISTER 0x01
+#define INSTRUCTION_REGISTER 0x00
 #define ENABLE 0x04
 
 /* Variables -----------------------------------------------------------------*/
@@ -55,8 +59,9 @@ void printOutput(void);
 void sendCommand(uint8_t command);
 void sendChar(uint8_t c, uint8_t mode);
 void send4Bits(uint8_t c, uint8_t mode);
+void positionCursor(int row, int col);
 void LCD_Init(void);
-void Delay_us(uint16_t usDuration);
+void Delay_us(uint32_t usDuration);
 
 
 #endif /* __DISPLAY_H */
