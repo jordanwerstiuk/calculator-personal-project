@@ -20,7 +20,6 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#define NUM_BUTTONS 19
 #define USART_RX_BUF_SIZE 8
 
 
@@ -28,8 +27,13 @@
 extern UART_HandleTypeDef huart3;
 extern char UART3_rxBuffer[USART_RX_BUF_SIZE];
 
-extern uint16_t buttonPins[NUM_BUTTONS];
+typedef struct {
+  uint16_t key;
+  char value;
+} pinMappings;
 
+extern pinMappings pinsA[13];
+extern pinMappings pinsB[9];
 
 /* Function prototypes  ------------------------------------------------------*/
 int _write(int file, char *ptr, int len);

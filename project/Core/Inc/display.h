@@ -54,8 +54,9 @@ extern TIM_HandleTypeDef htim1;
 extern const uint8_t LCD_ADDR;
 
 /* Function prototypes  ------------------------------------------------------*/
+void print1Char(char c);
 char* formatOutput(void);
-void printOutput(void);
+void print(void);
 void sendCommand(uint8_t command);
 void sendChar(uint8_t c, uint8_t mode);
 void send4Bits(uint8_t c, uint8_t mode);

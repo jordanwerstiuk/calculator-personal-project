@@ -17,9 +17,38 @@
 UART_HandleTypeDef huart3;
 char UART3_rxBuffer[USART_RX_BUF_SIZE] = "Test";
 
-uint16_t buttonPins[NUM_BUTTONS]= {GPIO_PIN_0, GPIO_PIN_1, GPIO_PIN_2, GPIO_PIN_3,
-		GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7, GPIO_PIN_8, GPIO_PIN_9,
-		GPIO_PIN_12, GPIO_PIN_13, GPIO_PIN_14};
+/*
+Edit the pin numbers based on the CubeMX configuration
+Edit the corresponding chars to allow for the easiest PCB trace routing
+given the proposed button layout on the calculator
+ */
+pinMappings pinsA[13] = {
+    {GPIO_PIN_0, '0'},
+    {GPIO_PIN_1, '1'},
+    {GPIO_PIN_2, '2'},
+    {GPIO_PIN_3, '3'},
+    {GPIO_PIN_4, '4'},
+    {GPIO_PIN_5, '5'},
+    {GPIO_PIN_6, '6'},
+    {GPIO_PIN_7, '7'},
+    {GPIO_PIN_8, '8'},
+    {GPIO_PIN_9, '9'},
+    {GPIO_PIN_10, '+'},
+    {GPIO_PIN_12, '*'},
+    {GPIO_PIN_15, '.'}
+  };
+
+  pinMappings pinsB[9] = {
+    {GPIO_PIN_0, '/'},
+    {GPIO_PIN_1, '^'},
+    {GPIO_PIN_3, 'E'},
+    {GPIO_PIN_4, '_'},
+    {GPIO_PIN_5, 'D'},
+    {GPIO_PIN_8, '='},
+    {GPIO_PIN_9, 'A'},
+	{GPIO_PIN_12, '-'},
+    {GPIO_PIN_15, 'P'}
+  };
 
 
 /* Functions -----------------------------------------------------------------*/

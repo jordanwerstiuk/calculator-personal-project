@@ -17,19 +17,26 @@
 I2C_HandleTypeDef hi2c1;
 TIM_HandleTypeDef htim1;
 
-const uint8_t LCD_ADDR = (0x27 << 1);
+const uint8_t LCD_ADDR = 0x27 << 1;
 
 uint8_t backlight;
 
 /* Functions -----------------------------------------------------------------*/
+void print1Char(char c) { //TESTING FUNCTION
+	sendCommand(CLEAR_DISPLAY);
+	Delay_us(2000);
+	positionCursor(1, 1);
+	sendChar(c, DATA_REGISTER);
+}
+
 char* formatOutput() {
     static char firstNum[20];
     double num1 = 5; //placeholder until I add in the actual variables
     sprintf(firstNum, "%.2f", num1);
-    return firstNum;
+    return "NICE"; //also a placeholder
 }
 
-void printOutput() {
+void print() {
 	char* output = formatOutput();
 	for (int i = 0; i < strlen(output); i++)
 	    sendChar((uint8_t) output[i], DATA_REGISTER);
